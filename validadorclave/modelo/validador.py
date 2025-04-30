@@ -12,3 +12,7 @@ class ReglaValidacionCalisto:
 class ReglaValidacion(ABC):
     def __init__(self, longitud_esperada:int ):
         self.longitud_esperada=longitud_esperada
+
+    def _validar_longitud(self, clave: str) -> bool:
+        return len(clave) > self._longitud_esperada
+
