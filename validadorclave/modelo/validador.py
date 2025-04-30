@@ -23,12 +23,17 @@ class ReglaValidacion(ABC):
         pass
 
 
+class ReglaValidacionGanimedes(ReglaValidacion):
+    def __init__(self):
+        super().__init__(8)
 
+    def contiene_caracter_especial(self, clave: str) -> bool:
+        especiales = "@_#$%"
+        return any(c in especiales for c in clave)
+    def es_valida(self, clave: str) -> bool:
+        pass
 
 class Validador:
-    pass
-
-class ReglaValidacionGanimedes:
     pass
 
 class ReglaValidacionCalisto:
