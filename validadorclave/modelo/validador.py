@@ -33,8 +33,18 @@ class ReglaValidacionGanimedes(ReglaValidacion):
     def es_valida(self, clave: str) -> bool:
         pass
 
-class Validador:
-    pass
 
-class ReglaValidacionCalisto:
-    pass
+class ReglaValidacionCalisto(ReglaValidacion):
+    def __init__(self):
+        super().__init__(6)
+
+    def contiene_calisto(self, clave: str) -> bool:
+        palabra = "calisto"
+        if palabra not in clave.lower():
+            return False
+        subcadena = clave[clave.lower().find(palabra):][:7]
+        mayusculas = sum(1 for c in subcadena if c.isupper())
+        return 2 <= mayusculas < 7
+
+    def es_valida(self, clave: str) -> bool:
+        pass
