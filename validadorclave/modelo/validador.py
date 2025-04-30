@@ -48,3 +48,11 @@ class ReglaValidacionCalisto(ReglaValidacion):
 
     def es_valida(self, clave: str) -> bool:
         pass
+
+
+class Validador:
+    def __init__(self, regla: ReglaValidacion):
+        self.regla = regla
+
+    def es_valida(self, clave: str) -> bool:
+        return self.regla.es_valida(clave)
